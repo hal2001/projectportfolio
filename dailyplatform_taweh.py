@@ -1,6 +1,3 @@
-#Daily Platform File 
-#The Rock Creek Group
-#Taweh Beysolow
 import os 
 import pandas as pan
 import pyodbc 
