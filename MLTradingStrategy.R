@@ -243,14 +243,18 @@ colnames(resid_df)  <- c("Stdev", "Residuals", "Signal")
 ###################################################################################
 #Simple Example of a One Stock Portfolio
 portfolio  <- matrix(nrow = nrow(resid_df), ncol = 1)
-portfolio[1,1]  <-  100000
+portfolio[1,1]  <-  10000
 
 #Calculating Ford Returns using Modified Stat Arb Algorithm
 ford  <- statarb_y[60:nrow(statarb_returns)]
 for (i in 2:nrow(portfolio)){
-  if (resid_df[i - 1, 3] > 1.5){
-    portfolio[i]  <- portfolio[i - 1] * (1 + -ford[i - 1])
-  } else if (resid_df[i - 1, 3] < -1.5){
+  if (resid_df[i - 1, 3] >= 3){
+    portfolio[i]  <- (1.25)*portfolio[i - 1] * (1 + -ford[i - 1])
+  } else if (resid_df[i - 1, 3] <= -3){
+    portfolio[i]  <- (1.25)*portfolio[i - 1] * (1 + ford[i - 1])
+  } else if (resid_df[i - 1, 3] >= 1.5){
+    portfolio[i]  <-  portfolio[i - 1] * (1 + -ford[i - 1])
+  } else if (resid_df[i - 1, 3] <= - 1.5){
     portfolio[i]  <- portfolio[i - 1] * (1 + ford[i - 1])
   } else {
     portfolio[i]  <- portfolio[i - 1]
@@ -272,5 +276,6 @@ strat_summary  <- list("Max Return" = max(ret), "Min Return" = min(ret), "Avg Re
 print(strat_summary)
 #Plot Strategy Return 
 x  <- seq(1,length(portfolio), 1)
-plot(x, portfolio, main = "Return of Strategy Over Time", xlab = "Trading Days", ylab = "Portfolio Value Initialized at $100K", 
+plot(x, portfolio, main = "Return of Strategy Over Time", xlab = "Trading Days", ylab = "Portfolio Value Initialized at $10K", 
      col = "cadetblue", lwd = 1.5, type = "l")
+
