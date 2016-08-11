@@ -1,4 +1,4 @@
-#Explanatory Models HW3 - Taweh Beysolow 
+#Wealth Iniequality and Gini Index Research - Taweh Beysolow 
 #Clear the workspace
 rm(list = ls())
 
