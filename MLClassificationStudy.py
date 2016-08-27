@@ -90,7 +90,7 @@ c_matrix = pan.DataFrame(metrics.confusion_matrix(y_t, y_h))
 accept = np.nansum(c_matrix.loc[:,0])
 reject = np.nansum(c_matrix.loc[:,1])
 precision_log = c_matrix.loc[0,0]/accept
-recall_log = c_matrix.loc[0,0]/(c_matrix.loc[0,0] + c_matrix.loc[1,1])
+recall_log = c_matrix.loc[0,0]/(c_matrix.loc[0,0] + c_matrix.loc[0,1])
 log_score = log.score(x_t, y_t)
 
 #Data Frame of Results
@@ -118,7 +118,7 @@ con_matrix = pan.DataFrame(metrics.confusion_matrix(y_t, yh))
 accept = np.nansum(con_matrix.loc[:,0])
 reject = np.nansum(con_matrix.loc[:,1])
 precision_svm = con_matrix.loc[0,0]/accept
-recall_svm = con_matrix.loc[0,0]/(con_matrix.loc[0,0] + con_matrix.loc[1,1])
+recall_svm = con_matrix.loc[0,0]/(con_matrix.loc[0,0] + con_matrix.loc[0,1])
 svm_score = svc.score(x_t, y_t)
 
 #Data Frame of Results
@@ -146,7 +146,7 @@ con_matrix2 = pan.DataFrame(metrics.confusion_matrix(y_t, yh2))
 accept = np.nansum(con_matrix2.loc[:,0])
 reject = np.nansum(con_matrix2.loc[:,1])
 precision_f = con_matrix2.loc[0,0]/accept
-recall_f = con_matrix2.loc[0,0]/(con_matrix2.loc[0,0] + con_matrix2.loc[1,1])
+recall_f = con_matrix2.loc[0,0]/(con_matrix2.loc[0,0] + con_matrix2.loc[0,1])
 f_score = f.score(x_t, y_t)
 
 #Data Frame of Results
@@ -174,7 +174,7 @@ con_matrix3 = pan.DataFrame(metrics.confusion_matrix(y_t, yh3))
 accept = np.nansum(con_matrix3.loc[:,0])
 reject = np.nansum(con_matrix3.loc[:,1])
 precision_qda = con_matrix3.loc[0,0]/accept
-recall_qda = con_matrix3.loc[0,0]/(con_matrix3.loc[0,0] + con_matrix3.loc[1,1])
+recall_qda = con_matrix3.loc[0,0]/(con_matrix3.loc[0,0] + con_matrix3.loc[0,1])
 qda_score = qda.score(x_t, y_t)
 
 #Data Frame of Results 
@@ -202,7 +202,7 @@ con_matrix4 = pan.DataFrame(metrics.confusion_matrix(y_t, yh4))
 accept = np.nansum(con_matrix4.loc[:,0])
 reject = np.nansum(con_matrix4.loc[:,1])
 precision_per = con_matrix4.loc[0,0]/accept
-recall_per = con_matrix4.loc[0,0]/(con_matrix4.loc[0,0] + con_matrix4.loc[1,1])
+recall_per = con_matrix4.loc[0,0]/(con_matrix4.loc[0,0] + con_matrix4.loc[0,1])
 per_score = per.score(x_t, y_t)
 
 #Data Frame of Results 
