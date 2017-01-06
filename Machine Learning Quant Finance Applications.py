@@ -1,5 +1,3 @@
-#Correlation-One Assessment
-#Machine Learning Test 
 #Taweh Beysolow II 
 
 #Uploading necessary modules
